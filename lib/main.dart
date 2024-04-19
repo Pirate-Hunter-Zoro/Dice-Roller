@@ -1,34 +1,40 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: GradientContainer(),
+      ),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class GradientContainer extends StatelessWidget {
+  // We should accept a key argument, and call our parent constructor with said key
+  // You can store an instance of this widget type in a memory location to be reused
+  const GradientContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('First App'),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color.fromARGB(255, 187, 6, 124),
+            Color.fromARGB(255, 101, 21, 238),
+          ],
         ),
-        body: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Hello World!',
-              ),
-              Text(
-                'It\'s time to learn Flutter!',
-              ),
-            ],
+      ),
+      // Existing memory will be reused when you use const - address preserved
+      child: const Center(
+        child: Text(
+          'Hello World!',
+          style: TextStyle(
+            fontSize: 28.0,
+            color: Colors.white,
           ),
         ),
       ),
