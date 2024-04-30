@@ -4,7 +4,7 @@ import 'package:dice_roller/gradient_container.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Scaffold(
         body: GradientContainer.purple(),
       ),
